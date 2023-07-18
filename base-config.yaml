@@ -1,0 +1,14 @@
+
+backend: vosk # One of: whisper, vosk
+
+vosk:
+    model_path: models/vosk/vosk-model-en-us-0.22
+
+whisper:
+    # Note: you must restart the instance after changing the model
+    model_name: tiny.en
+
+    # The language of the audio. Set to `auto` for auto-detect
+    language: auto
+    # Set to true to translate the audio transcription to english
+    translate: false

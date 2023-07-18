@@ -1,0 +1,14 @@
+maubot: 0.1.0
+id: com.elishaaz.maulocalstt
+version: 1.0.0
+license: GPLv3
+modules:
+  - maulocalstt
+main_class: MauLocalSTT
+config: true
+extra_files:
+  - base-config.yaml
+dependencies:
+  - whispercpp
+  - numpy
+  - vosk

@@ -1,0 +1,1 @@
+from .maulocalstt import MauLocalSTT
