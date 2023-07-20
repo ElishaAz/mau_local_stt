@@ -8,6 +8,11 @@ import json
 
 from .import_backends import vosk, VOSK_INSTALLED, whispercpp, WHISPER_INSTALLED
 
+if WHISPER_INSTALLED:
+    import numpy as np
+else:
+    np = type('numpy', (object,), {'ndarray': Any})
+
 SAMPLE_RATE = 16000
 
 VOSK_CHUNK_SIZE = 16000 * 4 * 10
