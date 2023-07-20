@@ -1,11 +1,18 @@
 
 backend: vosk # One of: whisper, vosk
 
+# Vosk specific config
 vosk:
+    # The path to the vosk model to use, either absolute or relative to current working directory
+    # Download from: https://alphacephei.com/vosk/models
     model_path: models/vosk/vosk-model-en-us-0.22
 
+# Whisper specific config
 whisper:
-    # Note: you must restart the instance after changing the model
+    # The name of the whisper model, without the ggml- and .bin.
+    # One of: tiny, tiny.en, base, base.en, small, small.en, medium, medium.en, large-v1, large,
+    # Download from: https://huggingface.co/ggerganov/whisper.cpp/tree/main
+    # Place the model in models/whispercpp/
     model_name: tiny.en
 
     # The language of the audio. Set to `auto` for auto-detect

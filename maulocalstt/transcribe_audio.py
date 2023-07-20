@@ -6,21 +6,7 @@ from mautrix.util.logging import TraceLogger
 import numpy as np
 import json
 
-try:
-    import whispercpp
-
-    WHISPER_INSTALLED = True
-except ModuleNotFoundError:
-    whispercpp = type("whispercpp", (object,), {"Whisper": Any})
-    WHISPER_INSTALLED = False
-
-try:
-    import vosk
-
-    VOSK_INSTALLED = True
-except ModuleNotFoundError:
-    vosk = type("vosk", (object,), {"Model": Any, "KaldiRecognizer": Any})
-    VOSK_INSTALLED = False
+from .import_backends import vosk, VOSK_INSTALLED, whispercpp, WHISPER_INSTALLED
 
 SAMPLE_RATE = 16000
 
