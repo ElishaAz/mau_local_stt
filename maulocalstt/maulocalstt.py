@@ -1,4 +1,5 @@
 import os.path
+import shutil
 from typing import Tuple, Type, Optional, Any
 
 import mautrix.crypto.attachments
@@ -139,6 +140,10 @@ class MauLocalSTT(Plugin):
             data = await download_encrypted_media(content.file, evt.client)
         else:  # shouldn't happen
             self.log.warning("A message with AUDIO message type received, but it does not contain a file.")
+            return
+
+        if shutil.which("ffmpeg") is None:
+            self.log.error("FFmpeg must be on PATH")
             return
 
         if self.config['backend'] == 'whisper' and WHISPER_INSTALLED:
