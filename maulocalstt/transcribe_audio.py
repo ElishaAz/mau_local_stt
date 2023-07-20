@@ -8,16 +8,18 @@ import json
 
 try:
     import whispercpp
+
     WHISPER_INSTALLED = True
 except ModuleNotFoundError:
-    whispercpp = type("whispercpp", dict={"Whisper": Any})
+    whispercpp = type("whispercpp", (object,), {"Whisper": Any})
     WHISPER_INSTALLED = False
 
 try:
     import vosk
+
     VOSK_INSTALLED = True
 except ModuleNotFoundError:
-    vosk = type("vosk", dict={"Model": Any, "KaldiRecognizer": Any})
+    vosk = type("vosk", (object,), {"Model": Any, "KaldiRecognizer": Any})
     VOSK_INSTALLED = False
 
 SAMPLE_RATE = 16000
