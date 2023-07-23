@@ -84,6 +84,8 @@ async def transcribe_audio_vosk(data: bytes, vosk_model: vosk.Model, mimeType: s
 
     loop = asyncio.get_event_loop()
 
+    transcriptions = list()
+
     run = True
     while run:
         data = await stdout.read(VOSK_CHUNK_SIZE)
@@ -91,10 +93,12 @@ async def transcribe_audio_vosk(data: bytes, vosk_model: vosk.Model, mimeType: s
             break
         has_result = await loop.run_in_executor(None, _run_vosk, rec, data, logger)
         if has_result:
-            logger.debug(F"Vosk Result: {rec.Result()}")
+            result = rec.Result()
+            logger.debug(F"Vosk Result: {result}")
+            transcriptions.append(json.loads(result)['text'])
 
     result = rec.FinalResult()
-    result_json = json.loads(result)
+    transcriptions.append(json.loads(result)['text'])
     logger.debug(F"Vosk final result: {result}")
     del rec
-    return result_json['text']
+    return " ".join(transcriptions)
