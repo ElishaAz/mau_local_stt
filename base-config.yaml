@@ -14,7 +14,8 @@ whisper:
     # Download from: https://huggingface.co/ggerganov/whisper.cpp/tree/main
     # Place the model in models/whispercpp/
     model_name: tiny.en
-
+    
+    basedir: models
     # The language of the audio. Set to `auto` for auto-detect
     language: auto
     # Set to true to translate the audio transcription to english
