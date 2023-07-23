@@ -69,6 +69,8 @@ class MauLocalSTT(Plugin):
                         del self.vosk_model
                         self.vosk_model = None
 
+                    self.current_backend = None
+
                     # load the (new) model
                     self.whisper_model = whispercpp.Whisper.from_pretrained(self.config['whisper']["model_name"],
                                                                             basedir='models')
@@ -90,6 +92,8 @@ class MauLocalSTT(Plugin):
                         del self.whisper_model
                     if self.vosk_model is not None:
                         del self.vosk_model
+
+                    self.current_backend = None
 
                     # make sure the model is actually there
                     if os.path.isdir(self.config['vosk']['model_path']):
