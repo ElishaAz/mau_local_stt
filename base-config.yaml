@@ -14,6 +14,9 @@ whisper:
     # Download from: https://huggingface.co/ggerganov/whisper.cpp/tree/main
     # Place the model in models/whispercpp/
     model_name: tiny.en
+    # The base directory of the models, either absolute or related to current working directory.
+    # The models should be under a directory called whispercpp under this directory.
+    base_dir: models
 
     # The language of the audio. Set to `auto` for auto-detect
     language: auto
