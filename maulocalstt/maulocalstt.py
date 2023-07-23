@@ -73,7 +73,7 @@ class MauLocalSTT(Plugin):
 
                     # load the (new) model
                     self.whisper_model = whispercpp.Whisper.from_pretrained(self.config['whisper']["model_name"],
-                                                                            basedir='models')
+                                                                            basedir=self.config['whisper']["basedir"])
 
                     self.current_backend = 'whisper'
                     self.last_whisper_model_name = self.config['whisper']['model_name']
