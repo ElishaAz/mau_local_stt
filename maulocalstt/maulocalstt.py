@@ -92,7 +92,7 @@ class MauLocalSTT(Plugin):
                         del self.vosk_model
 
                     # make sure the model is actually there
-                    if os.path.isfile(self.config['vosk']['model_path']):
+                    if os.path.isdir(self.config['vosk']['model_path']):
                         self.vosk_model = vosk.Model(self.config['vosk']['model_path'])
 
                         self.current_backend = 'vosk'
