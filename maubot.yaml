@@ -1,7 +1,7 @@
 maubot: 0.1.0
 id: com.elishaaz.maulocalstt
 version: 1.0.2
-license: GPLv3
+license: GPL-3.0-only
 modules:
   - maulocalstt
 main_class: MauLocalSTT
